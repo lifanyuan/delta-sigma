@@ -26,11 +26,15 @@ module dsd_pcm(
     input ws,
     input rst_n,
 //    output data_out_end_L_1
+//    output clk_out,
     output modulator_out_L,
     output modulator_out_R////////////////////////////////
     );
 // assign data_out_end_L_1=modulator_out_L;
  wire en_64,en_32,en_16,en_8;
+// wire rst_n;
+// assign rst_n=!rst;
+// assign clk_out=bclk;
  enable enable(    .clk(bclk),
                    .rst_n(rst_n),
                          .en_64(en_64),
@@ -81,5 +85,5 @@ modulator_512 modulator_512_R( .in(deal_pcm_out_R),
                             .rst_n(rst_n),
                             .clk(bclk),
                             .enable(1'b1)
-                          );    
+                          );  
 endmodule
